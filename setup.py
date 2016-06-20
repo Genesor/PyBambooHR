@@ -45,12 +45,12 @@ if os.path.exists('README.txt'):
     long_description = open('README.txt').read()
 
 setup(
-    name='PyBambooHR',
-    version='0.6.9',
-    url='http://github.com/smeggingsmegger/PyBambooHR',
+    name='PyBambooHR-Gene',
+    version='0.6.10',
+    url='http://github.com/Genesor/PyBambooHR',
     license='MIT',
-    author='Scott Blevins',
-    author_email='sblevins@gmail.com',
+    author='Benjamin De Bernardi',
+    author_email='ben@sadoma.so',
     description='A Python wrapper for the Bamboo HR API',
     long_description= long_description+'\n'+read('CHANGES'),
     platforms='OS Independent',

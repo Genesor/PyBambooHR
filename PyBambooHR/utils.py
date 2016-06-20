@@ -148,15 +148,14 @@ def transform_time_off(xml_input):
         requests.append(rq)
     return requests
 
-def transform_change_list(xml_input):
-    obj = _parse_xml(xml_input)
-    rows = _extract(obj, 'changeList', 'employee')
+def transform_change_list(json_input):
+    obj = json.loads(json_input)
     events = []
-    for row in rows:
+    for i, event in obj['employees'].iteritems():
         events.append({
-            'id': row['@id'],
-            'action': row['@action'],
-            'lastChanged': datetime.datetime.strptime(row['@lastChanged'], '%Y-%m-%dT%H:%M:%S+00:00')
+            'userId': int(event['id']),
+            'action': event['action'],
+            'lastChanged': datetime.datetime.strptime(event['lastChanged'], '%Y-%m-%dT%H:%M:%S+00:00')
         })
     return events
 
